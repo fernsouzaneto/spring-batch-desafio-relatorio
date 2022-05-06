@@ -40,6 +40,9 @@ public class CustomItemWriter implements ItemWriter<Object> {
         } catch (Exception e) {
             logger.error("[ItemWriter] Ocorreu um erro -> " + e.getMessage());
         }
+        finally {
+            delegate.close();
+        }
         logger.error("[ItemWriter] STATUS -> " + stepExecution.getStatus());
     }
 
